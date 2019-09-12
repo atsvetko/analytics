@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="row ">
+        <h1 class="title">IT salary analyzer</h1>
+    </div>
+    <div class="row ">
+        <form class="form-inline">
+            <div class="form-group mb-2">
+                <label for="specialization" class="sr-only">Specialization</label>
+                <input type="text" class="form-control" id="specialization" value="Java">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="experience" class="sr-only">Experience</label>
+                <select id="experience" name="experience" class="custom-select">
+                    <option value="between3And6">Between 3 and 6 years</option>
+                    <option value="between1And3">Between 1 and 3 years</option>
+                    <option value="noExperience">No experience</option>
+                    <option value="moreThan6">More then 6 years</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Average salary</button>
+        </form>
+    </div>
+    <div class="salary_stats">
+        <div class="counter">
+            <div class="row justify-content-center sum"><span id="average-salary">{{report.salaryStatistic.average}}</span>&nbsp;руб. в месяц</div>
+            <div class="row justify-content-center description">Средняя зарплата на основании&nbsp;<span id="vacancy-count">{{report.vacancyCount}}</span>&nbsp;вакансий, за 2-е полугодие 2018 года</div>
+        </div>
+        <div class="row img">
+            <svg viewBox="0 0 1000 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect x="150" y="30" width="700" height="50" rx="0" fill="#A3C1F3"></rect>
+                <rect x="150" y="0" width="3" height="30" rx="0" fill="#A3C1F3"></rect>
+                <rect x="847" y="0" width="3" height="30" rx="0" fill="#A3C1F3"></rect>
+                <rect x="235" y="30" width="169" height="50" rx="0" fill="#967BCE"></rect>
+                <rect x="235" y="80" width="3" height="60" rx="0" fill="#967BCE"></rect>
+                <rect x="401" y="80" width="3" height="60" rx="0" fill="#967BCE"></rect>
+                <rect x="309" y="30" width="3" height="170" rx="0" fill="#F06E9C"></rect>
+                <g transform="translate(157, 17)" font-size="20" font-family="PT Sans" fill="#A3C1F3">
+                    <text id="min-salary">
+                        Мин. {{report.salaryStatistic.minimal}}k руб.
+                    </text>
+                </g>
+                <g transform="translate(843, 17)" font-size="20" font-family="PT Sans" fill="#A3C1F3">
+                    <text text-anchor="end" id="max-salary">
+                        Макс. {{report.salaryStatistic.maximum}}k руб.
+                    </text>
+                </g>
+                <g transform="translate(228, 105)" font-size="20" font-family="PT Sans" fill="#967BCE">
+                    <text text-anchor="end">
+                        25 перцентиль
+                    </text>
+                </g>
+                <g transform="translate(228, 130)" font-size="20" font-family="PT Sans" fill="#967BCE">
+                    <text text-anchor="end" id="twenty-five-percentile">
+                        {{report.salaryStatistic.twentyFivePercentile}}k руб.
+                    </text>
+                </g>
+                <g transform="translate(411, 105)" font-size="20" font-family="PT Sans" fill="#967BCE">
+                    <text>
+                        75 перцентиль
+                    </text>
+                </g>
+                <g transform="translate(411, 130)" font-size="20" font-family="PT Sans" fill="#967BCE">
+                    <text id="seventy-five-percentile">
+                        {{report.salaryStatistic.seventyFivePercentile}}k руб.
+                    </text>
+                </g>
+                <g transform="translate(320, 170)" font-size="20" font-family="PT Sans" fill="#F06E9C">
+                    <text>
+                        Медиана
+                    </text>
+                </g>
+                <g transform="translate(320, 195)" font-size="20" font-family="PT Sans" fill="#F06E9C">
+                    <text id="median-salary">
+                        {{report.salaryStatistic.median}}k руб.
+                    </text>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div class="fixed-bottom footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="http://botmgr.com/todo/"> Botmgr.com</a>
+    </div>
+</div>
+</body>
+</html>
